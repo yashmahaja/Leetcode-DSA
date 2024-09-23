@@ -1,7 +1,5 @@
 # Leetcode-DSA
 
-# Leetcode-DSA
-
 ![LeetCode](https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png)
 
 A collection of solutions for LeetCode problems focusing on Neetcode 150 and Striver's SDE Sheet. This repository aims to help you build a strong foundation in data structures and algorithms, providing clear, well-documented code to assist in understanding various problem-solving techniques.
