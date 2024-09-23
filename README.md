@@ -2,7 +2,7 @@
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" width="200"/>
 
-A collection of solutions for LeetCode problems focusing on Neetcode 150 and Striver's SDE Sheet. This repository aims to help you build a strong foundation in data structures and algorithms, providing clear, well-documented code to assist in understanding various problem-solving techniques.
+A collection of solutions for LeetCode problems focusing on Neetcode 150 and Striver's SDE Sheet.
 
 ## Table of Contents
 
@@ -20,10 +20,8 @@ This repository contains solutions to popular DSA problems curated from Neetcode
 
 ## Features
 
-- 📚 **Comprehensive Solutions**: Provides well-commented and structured solutions to each problem.
-- 📝 **Explanations**: Each solution includes an explanation of the approach and time/space complexity.
+- 📚 **Comprehensive Solutions**: Provides solutions to each problem.
 - 🔍 **Searchable**: Easily find problems and solutions by topic or difficulty level.
-- 🚀 **Learning Resources**: Links to tutorials and additional resources for each problem.
 
 ## Getting Started
 
