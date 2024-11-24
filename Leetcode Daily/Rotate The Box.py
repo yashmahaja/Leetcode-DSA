@@ -38,3 +38,10 @@ box = [["#","#","*",".","*","."],["#","#","#","*",".","."],["#","#","#",".","#",
 rotated_box = rotateTheBox(box)
 for row in rotated_box:
     print(row)
+
+a = [2,4,5,6,7]
+for i, num in enumerate(a):
+    print(i,num)
+
+# a.pop(2)
+# print(a)
