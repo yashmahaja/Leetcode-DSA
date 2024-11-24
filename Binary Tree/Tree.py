@@ -1,45 +1,118 @@
-
 class Node:
-    def __init__(self,left=None,right=None,val=None):
+    """Class representing a node in a binary tree."""
+    def __init__(self, left=None, right=None, val=None):
         self.val = val
         self.left = left
         self.right = right
 
+
 def display(root):
+    """Display the binary tree in a readable format."""
     if root is None:
         return
-    print(root.val, " -> ", end=' ')
+    print(f"{root.val} -> ", end="")
     if root.left is not None:
-        print(root.left.val, end=' ')
+        print(f"{root.left.val} ", end="")
     if root.right is not None:
-        print(root.right.val)
+        print(f"{root.right.val}", end="")
     print()
     display(root.left)
     display(root.right)
 
-def size(count, root):
-    if not root:
-        return count
-    return 1 + size(count,root.left) + size(count,root.right)
 
-def Sum(sum, root):
+def size(root):
+    """Return the number of nodes in the tree."""
     if not root:
-        return sum
-    return root.val + Sum(sum, root.left) + Sum(sum,root.right)
+        return 0
+    return 1 + size(root.left) + size(root.right)
 
-def Height(height, root):
-    if not root:
-        return height
-    return 1
 
-def Max(maxtree, root):
+def tree_sum(root):
+    """Return the sum of all node values in the tree."""
     if not root:
-        return maxtree
-    return max(root.val,Max(maxtree,root.left), Max(maxtree,root.right))
+        return 0
+    return root.val + tree_sum(root.left) + tree_sum(root.right)
+
+
+def product_of_tree(root):
+    """Return the product of all node values in the tree."""
+    if not root:
+        return 1
+    return root.val * product_of_tree(root.left) * product_of_tree(root.right)
+
+
+def height(root):
+    """Return the height of the tree."""
+    if not root:
+        return 0
+    return 1 + max(height(root.left), height(root.right))
+
+
+def max_value(root):
+    """Return the maximum value in the tree."""
+    if not root:
+        return float("-inf")
+    return max(root.val, max_value(root.left), max_value(root.right))
+
+
+def min_value(root):
+    """Return the minimum value in the tree."""
+    if not root:
+        return float("inf")
+    return min(root.val, min_value(root.left), min_value(root.right))
+
+
+def preorder(root):
+    """Traverse the tree in preorder and print values."""
+    if not root:
+        return
+    print(root.val, end=" ")
+    preorder(root.left)
+    preorder(root.right)
+
+
+def inorder(root):
+    """Traverse the tree in inorder and print values."""
+    if not root:
+        return
+    inorder(root.left)
+    print(root.val, end=" ")
+    inorder(root.right)
+
+
+def postorder(root):
+    """Traverse the tree in postorder and print values."""
+    if not root:
+        return
+    postorder(root.left)
+    postorder(root.right)
+    print(root.val, end=" ")
+
+
+def nth_level_order(root, n):
+    """Print all nodes at the nth level of the tree."""
+    if not root:
+        return
+    if n == 1:
+        print(root.val, end=" ")
+        return
+    nth_level_order(root.left, n - 1)
+    nth_level_order(root.right, n - 1)
+
+def all_levels(root):
+    """Print all levels of the tree."""
+    h = height(root)
+    for i in range(1, h + 1):
+        print(f"Level {i}:", end=" ")
+        nth_level_order(root, i)
+        print()
+
+
+
 
 def main():
+    # Create the tree
     root = Node(val=10)
-    # root.val = 1
     a = Node(val=8)
     b = Node(val=12)
     root.left = a
@@ -48,17 +121,42 @@ def main():
     d = Node(val=90)
     a.left = c
     a.right = d
+    f = Node(val=7)
+    g = Node(val=92)
+    c.left = f
     e = Node(val=11)
     b.left = e
+    e.right = g
+
+    # Display the tree
+    print("Tree Structure:")
     display(root)
-    count = size(0, root)
-    print(count)
-    sum = Sum(0, root)
-    print(sum)
-    height = Height(0, root)
-    print(height)
-    max = Max(0, root)
-    print(max)
+
+    # Perform tree operations
+    print("\nTree Properties:")
+    print(f"Count of Nodes: {size(root)}")
+    print(f"Sum of Values: {tree_sum(root)}")
+    print(f"Product of Values: {product_of_tree(root)}")
+    print(f"Height of Tree: {height(root)}")
+    print(f"Max Value: {max_value(root)}")
+    print(f"Min Value: {min_value(root)}")
+
+    # Traversals
+    print("\nTree Traversals:")
+    print("Preorder:", end=" ")
+    preorder(root)
+    print("\nInorder:", end=" ")
+    inorder(root)
+    print("\nPostorder:", end=" ")
+    postorder(root)
+
+    # Nth level order
+    print("\n\nNth Level Order:")
+    nth_level_order(root, 4)
+
+    # Print all Levels
+    print("\n\nAll Levels")
+    all_levels(root)
 
 if __name__ == "__main__":
     main()

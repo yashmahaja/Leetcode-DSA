@@ -25,5 +25,11 @@ def maxMatrixSum(matrix) -> int:
 
     return add
 
+matrix = [
+    [1, 12, 3],
+    [4, 5, 6],
+    [7, 8, -9]
+]
 
-print(maxMatrixSum([[1,2,3],[-1,-2,-3],[1,2,3]]))
+
+print(maxMatrixSum(matrix))
