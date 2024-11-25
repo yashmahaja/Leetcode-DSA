@@ -1,3 +1,5 @@
+from collections import deque
+
 class Node:
     """Class representing a node in a binary tree."""
     def __init__(self, left=None, right=None, val=None):
@@ -99,6 +101,7 @@ def nth_level_order(root, n):
     nth_level_order(root.left, n - 1)
     nth_level_order(root.right, n - 1)
 
+
 def all_levels(root):
     """Print all levels of the tree."""
     h = height(root)
@@ -108,6 +111,41 @@ def all_levels(root):
         print()
 
 
+def bfs(root):
+    """Perform Breadth-First Search (Level Order Traversal) on the tree."""
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+
+
+def dfs_iterative(root):
+    """Perform Depth-First Search using an iterative approach."""
+    if not root:
+        return
+    stack = [root]
+    while stack:
+        node = stack.pop()
+        print(node.val, end=" ")
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
+
+
+def dfs_recursive(root):
+    """Perform Depth-First Search using recursion."""
+    if not root:
+        return
+    print(root.val, end=" ")
+    dfs_recursive(root.left)
+    dfs_recursive(root.right)
 
 
 def main():
@@ -150,13 +188,18 @@ def main():
     print("\nPostorder:", end=" ")
     postorder(root)
 
-    # Nth level order
-    print("\n\nNth Level Order:")
-    nth_level_order(root, 4)
+    # Perform BFS
+    print("\n\nBFS Traversal:")
+    bfs(root)
 
-    # Print all Levels
-    print("\n\nAll Levels")
-    all_levels(root)
+    # Perform DFS (Iterative)
+    print("\nDFS Traversal (Iterative):")
+    dfs_iterative(root)
+
+    # Perform DFS (Recursive)
+    print("\nDFS Traversal (Recursive):")
+    dfs_recursive(root)
+
 
 if __name__ == "__main__":
     main()
