@@ -26,6 +26,7 @@ def SlidingPuzzle(board):
     visit = set([b])
     while q:
         i,b,length =  q.popleft()
+        print(b[i])
 
         if b == "123450":
             return length
