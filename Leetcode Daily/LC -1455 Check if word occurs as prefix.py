@@ -15,14 +15,9 @@ def isPrefixOfWord(sentence: str, searchWord: str) -> int:
     for idx, word in enumerate(sentenceList):
         if searchWord in word:
             while indx < len(searchWord) and searchWord[indx] == word[indx]:
-                if searchWord[indx] == word[indx]:
-                    indx += 1
-                else:
-                    mini = 1
-                    break
+                indx += 1
                 if indx == len(searchWord):
-                    mini = idx + 1
-                mini = min(mini, idx + 1)
+                    mini = min(mini, idx + 1)
 
             indx = 0
     if mini == float("inf"):
