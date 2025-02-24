@@ -13,3 +13,4 @@ def binarySearch(nums,start,end,target):
 nums = [-1,0,3,5,9,12]
 target = 0
 print(binarySearch(nums,0,len(nums)-1,target))
+

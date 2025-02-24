@@ -46,7 +46,7 @@ def product_of_tree(root):
 def height(root):
     """Return the height of the tree."""
     if not root:
-        return 0
+        return -1
     return 1 + max(height(root.left), height(root.right))
 
 
@@ -71,6 +71,7 @@ def preorder(root):
     print(root.val, end=" ")
     preorder(root.left)
     preorder(root.right)
+
 
 
 def inorder(root):
@@ -150,6 +151,7 @@ def dfs_recursive(root):
 
 def main():
     # Create the tree
+    # aaaaa = Node(68,67,61)
     root = Node(val=10)
     a = Node(val=8)
     b = Node(val=12)
@@ -166,6 +168,7 @@ def main():
     b.left = e
     e.right = g
 
+    # display(aaaaa)
     # Display the tree
     print("Tree Structure:")
     display(root)
@@ -188,6 +191,7 @@ def main():
     print("\nPostorder:", end=" ")
     postorder(root)
 
+    all_levels(root)
     # Perform BFS
     print("\n\nBFS Traversal:")
     bfs(root)
@@ -199,6 +203,8 @@ def main():
     # Perform DFS (Recursive)
     print("\nDFS Traversal (Recursive):")
     dfs_recursive(root)
+
+
 
 
 if __name__ == "__main__":

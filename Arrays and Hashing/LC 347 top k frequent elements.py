@@ -3,19 +3,18 @@ from collections import defaultdict
 
 def topKFrequent(nums, k):
     res = defaultdict(int)
-    final = []
 
     for i in nums:
         res[i] += 1
 
     ans = sorted(res.keys(), key=lambda x: res[x], reverse=True)
-    print(ans)
 
-    for i in range(k):
-        final.append(ans[i])
+    return ans[:k]
 
-    return final
+    # hashm = Counter(nums)
 
+    # Step 2: Use a min-heap to get the top k frequent elements
+    # return heapq.nlargest(k, hashm.keys(), key=hashm.get)
 
 nums = [1, 1, 1, 2, 2, 3]
 k = 2

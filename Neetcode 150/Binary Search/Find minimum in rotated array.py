@@ -18,7 +18,7 @@ You must write an algorithm that runs in O(log n) time.
 #     right = len(nums) - 1
 #     while left < right:
 #         mid = (left + right) // 2
-#         if nums[mid] > nums[right]:
+#         if nums[mid] >= nums[right]:
 #             left = mid + 1
 #         else:
 #             right = mid
@@ -38,5 +38,5 @@ def findMin(nums):
             res = min(res,nums[mid])
     return res
 
-nums = [3,4,5,1,2]
+nums = [3,3,1,3]
 print(findMin(nums))
